@@ -1,0 +1,13 @@
+#summary Todo list/missing features from oyoyo bot
+
+= Introduction =
+
+This page lists features that are still to be completed on oyoyo bot 
+
+
+= Details =
+
+ * Auto rejoin
+ * Change nick if not available 
+ * Move basic auth into oyoyo
+ * Finish BetterAuth module 
