@@ -65,9 +65,9 @@ All the previous code will not actually do anything, we still need to connect
 ( and stay connected )... 
 
 {{{
-connection = cli.connect()
+conn = cli.connect()
 while 1:
-    connection.next()
+    conn.next()
 }}}
 
 Whats actually happening is connect calls yield, halting execution at a specific
@@ -78,12 +78,12 @@ more than one instance of IRCClient and call them all in a loop. For example:
 cli_1 = IRCClient(SomeHandler, ...)
 cli_2 = IRCClient(SomeHandler, ...)
 
-con_1 = cli_1.connect()
-con_2 = cli_2.connect()
+conn_1 = cli_1.connect()
+conn_2 = cli_2.connect()
 
 while 1:
-    con_1.next()
-    con_2.next()
+    conn_1.next()
+    conn_2.next()
 }}}
 
 Luckily we dont have to deal with multiple connections like this.
