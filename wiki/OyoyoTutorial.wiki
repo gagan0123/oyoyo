@@ -16,12 +16,12 @@ The following is an example of creating an IRCClient and a command handler:
 
 {{{
 from oyoyo.client import IRCClient
-from oyoyo.cmdhandler import CommandHandler
+from oyoyo.cmdhandler import DefaultCommandHandler
 
-class MyHandler(CommandHandler):
-    # handle PRIVMSG commands ( note lower case )
-    def privmsg(self, prefix, args):
-        print "%s in %s said: %s" % (args[0], prefix, args[1])
+class MyHandler(DefaultCommandHandler):
+    # Handle messages handle PRIVMSG commands ( note lower case )
+    def privmsg(self, nick, chan, msg):
+        print "%s in %s said: %s" % (nick, chan, msg)
 
 cli = IRCClient(MyHandler,
      host="irc.freenode.net",
@@ -35,7 +35,7 @@ room the bot is in using PRIVMSG. ( You may need to consult
 the IRC specification for all possible commands ). 
 
 It's very likely that you will want to issue some commands "on connect", for example
-joining rooms, sending identify messages etc... This is acheived with an on connect
+joining rooms, sending identify messages etc... This is achieved with an on connect
 callback.
 
 The following example builds on the previous example and adds an on connect
@@ -47,12 +47,10 @@ from oyoyo import helpers
 ....
 
 def connect_callback(cli):
-    # ns short for NickServ
-    helpers.ns(cli, "IDENTIFY", "my_password")
-    # could also be done as
-    #helpers.msg(cli, "NickServ", "IDENTIFY", "my_password")
+    # Identify to nickserv
+    helpers.msg(cli, "NickServ", "IDENTIFY", "my_password")
 
-    # join '#test'
+    # Join the channel '#test'
     helpers.join(cli, "#test")
 
 cli = IRCClient(MyHandler,
