@@ -87,9 +87,9 @@ while 1:
     conn_2.next()
 }}}
 
-Luckily we dont have to deal with multiple connections like this.
+Luckily we don't have to deal with multiple connections like this.
 oyoyo.client.IRCApp is designed to maintain several IRCClient connections but at the
-cost of blocking. It is usefull in certain situations and also serves as an example
+cost of blocking. It is useful in certain situations and also serves as an example
 implementation of an application.
 
 Using IRCApp we can write the last example as:
