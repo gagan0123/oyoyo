@@ -1,4 +1,4 @@
-#summary Oyoyo Bot Plugin Tutorial
+#summary Oyoyo Bot Plugin Tutorial (no longer supported)
 
 = Introduction =
 
@@ -95,6 +95,4 @@ setup(
 = A Complete Example = 
 
 For complete examples look in http://oyoyo.googlecode.com/svn/trunk/oyoyo_bot_plugins/
-
-
 
