@@ -2,10 +2,10 @@
 
 = Introduction =
 Below is an example bot that responds to !say commands.
-{{{
- <meltingwax> !say hi there world
- <@oyoyo-example> hi there world
-}}}
+
+ `<meltingwax>` !say hi there world
+
+ `<@oyoyo-example>` hi there world
 
 = Source Code =
 {{{
