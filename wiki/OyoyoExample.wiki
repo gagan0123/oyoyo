@@ -31,6 +31,7 @@ class MyHandler(DefaultCommandHandler):
             print 'Saying, "%s"' % to_say
             helpers.msg(self.client, chan, to_say)
 
+
 def connect_cb(cli):
     helpers.join(cli, CHANNEL)
 
