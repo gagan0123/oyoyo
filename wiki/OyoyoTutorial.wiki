@@ -1,8 +1,8 @@
-#summary Oyoyo Tutorial
+#summary Oyoyo lib Tutorial
 
 = Introduction =
 
-This tutorial will show you how to use the Oyoyo IRC module.
+This tutorial will show you how to use the Oyoyo IRC module. First, install the module.
 
 == Connecting to a server ==
 To connect to a single server you need to use oyoyo.client.IRCClient. The
