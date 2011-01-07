@@ -1,4 +1,4 @@
-#summary Todo list/missing features from oyoyo bot
+#summary Todo list/missing features from oyoyo bot (no longer supported)
 
 = Introduction =
 This page lists features that are still to be completed on oyoyo bot (different from the general library).
