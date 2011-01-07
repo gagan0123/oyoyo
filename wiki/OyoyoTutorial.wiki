@@ -1,20 +1,18 @@
 #summary Oyoyo Library Tutorial
 
-= Introduction =
+=Introduction=
 
 This tutorial will show you how to use the Oyoyo IRC library. To begin, first install the library.
 
-== Connecting to a server ==
+==Handlers and Starting a Connection==
 To connect to a single server you need to use oyoyo.client.IRCClient. The
-IRCClient class handles all communication with a *single* server.
-
-When creating an IRCClient you also need to provide a class to handle
-messages sent from the server, this is called the "command handler" and must
-be a subclass of oyoyo.cmdhandler.CommandHandler.
+IRCClient class handles all communication with a *single* server. When creating an IRCClient you also need to define a handler class, 
+which connects messages sent from the server to ideas.
 
 The following is an example of creating an IRCClient and a command handler:
 
 {{{
+#!/usr/bin/python
 from oyoyo.client import IRCClient
 from oyoyo.cmdhandler import DefaultCommandHandler
 
@@ -23,17 +21,14 @@ class MyHandler(DefaultCommandHandler):
     def privmsg(self, nick, chan, msg):
         print "%s in %s said: %s" % (nick, chan, msg)
 
-cli = IRCClient(MyHandler,
-     host="irc.freenode.net",
-     port=6667,
-     nick="myname",
-     )
+cli = IRCClient(MyHandler, host="irc.freenode.net", port=6667, nick="myname")
 }}}
 
-This code shows a simple handler to print messages sent either to the bot or to
-room the bot is in using PRIVMSG. ( You may need to consult
-the IRC specification for all possible commands ). 
+The above code shows a simple handler to that outputs all PRIVMSG commands.
 
+In general, in order to behave on types of commands sent by the server, your handler class should override the methods whose names and parameters associate with the command. To see what kind of commands the server sends, you can override the method `__unhandled__`, and print its \*args. Alternatively, you may consult the IRC specification.
+
+==Connect callback and joining channels==
 It's very likely that you will want to issue some commands "on connect", for example
 joining rooms, sending identify messages etc... This is achieved with an on connect
 callback.
@@ -43,8 +38,10 @@ callback to automatically identify and join the room '#test'. Notice the use of
 oyoyo.helpers which contains commonly used IRC commands.
 
 {{{
+#!/usr/bin/python
+from oyoyo.client import IRCClient
+from oyoyo.cmdhandler import DefaultCommandHandler
 from oyoyo import helpers
-....
 
 def connect_callback(cli):
     # Identify to nickserv
@@ -53,14 +50,18 @@ def connect_callback(cli):
     # Join the channel '#test'
     helpers.join(cli, "#test")
 
-cli = IRCClient(MyHandler,
-     host="irc.freenode.net",
-     port=6667,
-     nick="myname",
-     connect_cb=connect_callback,
-)
+class MyHandler(DefaultCommandHandler):
+    # Handle messages handle PRIVMSG commands ( note lower case )
+    def privmsg(self, nick, chan, msg):
+        print "%s in %s said: %s" % (nick, chan, msg)
+
+cli = IRCClient(MyHandler, host="irc.freenode.net", port=6667, nick="myname",
+                connect_cb=connect_callback)
+
+....
 }}}
 
+==Single-client looping and Multi-client looping==
 All the previous code will not actually do anything, we still need to connect
 ( and stay connected )... 
 
