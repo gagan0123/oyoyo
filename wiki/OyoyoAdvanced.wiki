@@ -4,6 +4,8 @@
 
 Below describes and shows examples for some more advanced features of using the Oyoyo IRC library.
 
+This page is a work in progress.
+
 
 = Logging =
 
