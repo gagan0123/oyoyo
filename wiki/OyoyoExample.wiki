@@ -1,4 +1,4 @@
-#summary Example !say bot in oyoyo
+#summary Example bot in oyoyo that responds to a !say command
 
 = Introduction =
 Below is an example bot that responds to !say commands.
