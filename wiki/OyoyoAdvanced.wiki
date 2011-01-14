@@ -52,6 +52,7 @@ from oyoyo.client import IRCApp, IRCClient
 from oyoyo.cmdhandler import DefaultCommandHandler
 import yaml
 
+
 class Config(object):
      def __init__(self, host, port, nick, channel):
           self.host = host
