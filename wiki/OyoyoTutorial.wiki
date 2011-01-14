@@ -1,4 +1,5 @@
 #summary Oyoyo Library Tutorial
+#labels Featured
 
 =Introduction=
 
