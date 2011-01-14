@@ -1,4 +1,4 @@
-#summary Example bot in oyoyo that responds to a !say command (python 2 and 3)
+#summary Example bot in oyoyo that responds to a !say command (python 2.x, 3.x)
 
 = Introduction =
 Below is an example bot that connects to a server, joins a channel, and responds to !say commands.
