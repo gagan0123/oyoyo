@@ -1,4 +1,5 @@
 #summary Oyoyo Bot Plugin Tutorial (no longer supported)
+#labels Deprecated
 
 = Introduction =
 
@@ -95,4 +96,3 @@ setup(
 = A Complete Example = 
 
 For complete examples look in http://oyoyo.googlecode.com/svn/trunk/oyoyo_bot_plugins/
-
