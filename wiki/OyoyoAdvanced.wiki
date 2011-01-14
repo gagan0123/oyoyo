@@ -14,11 +14,11 @@ This page is a work in progress.
 
 Below outlines a design pattern you can use to create a bot that loads its information from a configuration file.
 
-The principle of the design pattern is to define a class that inherits from IRCClient and whose __init__ accepts a configuration file path. The __init__ then parses the configuration file, stores the information in self.config, and then passes it on to IRCClient.__init__. Another note is that the `connect_cb` (connect callback) can then be a bound method on the instance.
+The principle of the design pattern is to define a class that inherits from `IRCClient` and whose `__init__` accepts a configuration file path. The __init__ then parses the configuration file, stores the information in self.config, and then passes it on to `IRCClient.__init__`. Another note is that the `connect_cb` (connect callback) can then be a bound method on the instance.
 
-In addition to this client class, you then define a command handler class, inheriting from DefaultCommandHandler, as you normally would. Such a class already has the client's config instance available through self.client.config, if it would ever need to act based on that.
+In addition to this client class, you then define a command handler class, inheriting from `DefaultCommandHandler`, as you normally would. Such a class already has the client's config instance available through `self.client.config`, if it would ever need to act based on that.
 
-The illustration below will use a yaml-based configuration file, although any type works in practice.
+The illustration below will use a yaml-based configuration file, although any format works in practice.
 
 {{{
 #!/usr/bin/python
