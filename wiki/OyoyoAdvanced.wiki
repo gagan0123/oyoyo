@@ -76,13 +76,13 @@ class BotClient(IRCClient):
 
 class BotHandler(DefaultCommandHandler):
     def privmsg(self, prefix, chan, msg):
-        print(prefix, chan, msg)
+        print prefix, chan, msg
 
 
 if __name__ == '__main__':
      cli = BotClient('config.yaml')
      conn = cli.connect()
      while True:
-         conn.next()   # or next(conn) in python 3
+         conn.next()
 
 }}}
