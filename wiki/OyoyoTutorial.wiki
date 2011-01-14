@@ -1,5 +1,6 @@
 #summary Oyoyo Library Tutorial
 #labels Featured
+#sidebar TableOfContents
 
 =Introduction=
 
