@@ -1,4 +1,4 @@
-#summary Advanced Usage of Oyoyo
+#summary Advanced Tips for Usage of Oyoyo
 #labels Featured
 #sidebar TableOfContents
 
