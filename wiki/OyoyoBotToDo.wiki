@@ -1,4 +1,5 @@
 #summary Todo list/missing features from oyoyo bot (no longer supported)
+#labels Deprecated
 
 = Introduction =
 This page lists features that are still to be completed on oyoyo bot (different from the general library).
