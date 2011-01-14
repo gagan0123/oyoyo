@@ -32,3 +32,56 @@ Below is a brief synopsis of different types of messages sent to the logger.
 ||INFO||Calling a new timer callback||
 ||DEBUG||Processing a command in the command handler, including the function repr||
 ||DEBUG||A command was received that was not implemented by the command handler||
+
+  
+
+= Conf-File based Bot Design Pattern =
+
+Below outlines a design pattern you can use to create a bot that loads its information from a configuration file.
+
+The principle of the design pattern is to define a class that inherits from IRCClient and whose __init__ accepts a configuration file path. The __init__ then parses the configuration file, stores the information in self.config, and then passes it on to IRCClient.__init__. Another note is that the `connect_cb` (connect callback) can then be a bound method on the instance.
+
+In addition to this client class, you then define a command handler class, inheriting from DefaultCommandHandler, as you normally would. Such a class already has the client's config instance available through self.client.config, if it would ever need to act based on that.
+
+The illustration below will use a yaml-based configuration file, although any type works in practice.
+
+{{{
+#!/usr/bin/python
+from oyoyo import helpers
+from oyoyo.client import IRCApp, IRCClient
+from oyoyo.cmdhandler import DefaultCommandHandler
+import yaml
+
+class Config(object):
+     def __init__(self, host, port, nick, channel):
+          self.host = host
+          self.port = port
+          self.nick = nick
+          self.channel = channel   
+
+
+class BotClient(IRCClient):
+    def __init__(self, conf_file):
+        conf_yaml = yaml.load(open(conf_file))
+        self.config = Config(conf_yaml['host'], conf_yaml['port'],
+                             conf_yaml['nick'], conf_yaml['channel'])
+        IRCClient.__init__(self, BotHandler, host=self.config.host,
+                           port=self.config.port, nick=self.config.nick,
+                           connect_cb=self.connect_cb)
+
+    def connect_cb(self, unusued_cli):
+        helpers.join(self, channel)
+
+
+class BotHandler(DefaultCommandHandler):
+    def privmsg(self, prefix, chan, msg):
+        print(prefix, chan, msg)
+
+
+if __name__ == '__main__':
+     cli = BotClient('config.yaml')
+     conn = cli.connect()
+     while True:
+         conn.next()   # or next(conn) in python 3
+
+}}}
