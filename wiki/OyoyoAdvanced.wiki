@@ -1,4 +1,5 @@
 #summary Advanced Usage of Oyoyo
+#labels Featured
 
 = Introduction =
 
