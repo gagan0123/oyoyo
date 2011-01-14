@@ -46,7 +46,7 @@ class BotClient(IRCClient):
                            connect_cb=self.connect_cb)
 
     def connect_cb(self, unusued_cli):
-        helpers.join(self, channel)
+        helpers.join(self, self.config.channel)
 
 
 class BotHandler(DefaultCommandHandler):
