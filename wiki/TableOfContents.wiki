@@ -2,4 +2,5 @@
 #labels Deprecated
   * [OyoyoTutorial Tutorial]
   * [OyoyoAdvanced Advanced Tips]
+    * [OyoyoAdvanced#Conf-File_based_Bot_Design_Pattern Conf-File based Bot Design Pattern]
     * [OyoyoAdvanced#Logging Logging]
