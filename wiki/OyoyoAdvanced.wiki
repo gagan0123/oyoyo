@@ -19,8 +19,8 @@ logging.basicConfig(level=logging.DEBUG)  # everything above DEBUG will now be p
 
 Below is a brief synopsis of different types of messages sent to the logger.
 || *Logging Level* || Information || 
-||ERROR||An exception occurred while calling a method in a command handler, with formatted traceback||
-||ERROR||An error while reading the connection, including formatted traceback||
+||ERROR||An exception occurred while calling a method in a command handler, includes formatted traceback||
+||ERROR||An error while reading the connection, includes formatted traceback||
 ||INFO||Any message sent to IRC socket||
 ||INFO||Beginning to connect IRC server||
 ||INFO||Closing connection to IRC server||
