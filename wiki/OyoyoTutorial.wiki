@@ -51,7 +51,7 @@ def connect_callback(cli):
     helpers.join(cli, "#test")
 
 class MyHandler(DefaultCommandHandler):
-    # Handle messages handle PRIVMSG commands ( note lower case )
+    # Handle messages (the PRIVMSG command, note lower case)
     def privmsg(self, nick, chan, msg):
         print "%s in %s said: %s" % (nick, chan, msg)
 
