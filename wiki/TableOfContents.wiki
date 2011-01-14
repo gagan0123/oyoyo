@@ -1,6 +1,5 @@
 #summary Table of Contents
 #labels Deprecated
-
-* [OyoyoTutorial Tutorial]
-* [OyoyoAdvanced Advanced Tips]
-  * [OyoyoAdvanced#Logging Logging]
+  * [OyoyoTutorial Tutorial]
+  * [OyoyoAdvanced Advanced Tips]
+    * [OyoyoAdvanced#Logging Logging]
