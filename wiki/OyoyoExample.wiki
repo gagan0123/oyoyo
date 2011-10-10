@@ -5,6 +5,7 @@
 Below is an example bot that connects to a server, joins a channel, and responds to !say commands.
 
  `<meltingwax>` !say hi there world
+
  `<@oyoyo-example>` hi there world
 
 This is copy-and-paste ready for python2. To make work under python 3, change last line of `main()`, as indicated in the comment.
